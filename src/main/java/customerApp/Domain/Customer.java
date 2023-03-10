@@ -1,7 +1,8 @@
-package com.travis;
+package customerApp.Domain;
 
 import java.util.Objects;
 
+import customerApp.Infrastructure.CustomerRequest;
 import jakarta.persistence.*;
 
 @Entity
@@ -77,5 +78,11 @@ public class Customer {
                 ", email='" + email + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    public Customer (CustomerRequest customerRequest){
+        name = (customerRequest.name());
+        email = (customerRequest.email());
+        age = customerRequest.age();
     }
 }
